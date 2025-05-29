@@ -41,14 +41,6 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
-    - task: MavenAuthenticate@0
-      displayName: 'Authenticate to Azure Artifacts feed'
-      inputs:
-        artifactsFeeds: 'MavenDemo,MavenDemoFeed2'        ## Select one or multiple feeds to authenticate with.
-    - script: |
-        mvn deploy
-        displayName: 'Publish'
-
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
